@@ -31,8 +31,6 @@ static List<StatystykiZawodnika> listaMelton = new ArrayList<>();
                 for (int i=0; i<= listaMaxey.size()-1;i++){
                 s_PTS = s_PTS + listaMaxey.get(i).pts;}
                 double PTS = (s_PTS)/((listaMaxey.size()));
-                System.out.println(PTS);
-                System.out.println(listaMaxey.size());
                 return PTS;
             case 1:
                 double E_PTS = 0;

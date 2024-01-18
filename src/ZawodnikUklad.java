@@ -162,7 +162,7 @@ public class ZawodnikUklad extends JPanel {
 
 
         //adjust size and set layout
-        setPreferredSize(new Dimension(608, 839));
+        setPreferredSize(new Dimension(558, 739));
         setLayout(null);
 
         //add components
@@ -241,77 +241,77 @@ public class ZawodnikUklad extends JPanel {
 
 
         //set component bounds (only needed by Absolute Positioning)
-        bground.setBounds(0, 0, 610, 840);
-        naziwso.setBounds(30, 185, 210, 60);
-        zdjecie.setBounds(345, 30, 200, 215);
-        wynik1.setBounds(30, 405, 80, 50);
-        ppg2.setBounds(225, 455, 40, 50);
-        wynik3.setBounds(30, 505, 80, 50);
-        wynik4.setBounds(30, 555, 80, 50);
-        wynik5.setBounds(30, 605, 80, 50);
-        imie.setBounds(35, 106, 300, 90);
-        ppg_4.setBounds(265, 555, 40, 50);
-        apg5.setBounds(305, 605, 40, 50);
-        logo1.setBounds(110, 405, 60, 50);
-        fg1.setBounds(505, 405, 40, 50);
-        ppg1.setBounds(225, 405, 40, 50);
-        ppg_1.setBounds(265, 405, 40, 50);
-        apg1.setBounds(305, 405, 40, 50);
-        apg_1.setBounds(345, 405, 40, 50);
-        rpgS.setBounds(385, 405, 40, 50);
-        rpg1.setBounds(425, 405, 40, 50);
-        fgS.setBounds(465, 405, 40, 50);
-        ppg3.setBounds(225, 505, 40, 50);
-        wynik2.setBounds(30, 455, 80, 50);
-        logo2.setBounds(110, 455, 60, 50);
-        logo3.setBounds(110, 505, 60, 50);
-        logo5.setBounds(110, 605, 60, 50);
-        logo4.setBounds(110, 555, 60, 50);
-        ppg_2.setBounds(265, 455, 40, 50);
-        fg2.setBounds(505, 455, 40, 50);
-        ppg_3.setBounds(265, 505, 40, 50);
-        ppg4.setBounds(225, 555, 40, 50);
-        ppg5.setBounds(225, 605, 40, 50);
-        ppg_5.setBounds(265, 605, 40, 50);
-        apg3.setBounds(305, 505, 40, 50);
-        apg2.setBounds(305, 455, 40, 50);
-        apg_2.setBounds(345, 455, 40, 50);
-        rpgSS.setBounds(385, 455, 40, 50);
-        rpg2.setBounds(425, 455, 40, 50);
-        fgSS.setBounds(465, 455, 40, 50);
-        rpgSSSS.setBounds(385, 555, 40, 50);
-        fgSSSSS.setBounds(465, 605, 40, 50);
-        apg_4.setBounds(345, 555, 40, 50);
-        rpg4.setBounds(425, 555, 40, 50);
-        fg5.setBounds(505, 605, 40, 50);
-        fgSSS.setBounds(465, 505, 40, 50);
-        apg_3.setBounds(345, 505, 40, 50);
-        fg4.setBounds(505, 555, 40, 50);
-        fg3.setBounds(505, 505, 40, 50);
-        rpgSSS.setBounds(385, 505, 40, 50);
-        fgSSSS.setBounds(465, 555, 40, 50);
-        apg4.setBounds(305, 555, 40, 50);
-        rpg3.setBounds(425, 505, 40, 50);
-        rpg5.setBounds(425, 605, 40, 50);
-        rpgSSSSS.setBounds(385, 605, 40, 50);
-        apg_5.setBounds(345, 605, 40, 50);
-        butt_pop.setBounds(185, 725, 100, 25);
-        but_nas.setBounds(320, 725, 100, 25);
-        ppg.setBounds(50, 255, 60, 50);
-        ppg_n.setBounds(110, 255, 60, 50);
-        apg.setBounds(170, 255, 60, 50);
-        apg_n.setBounds(230, 255, 60, 50);
-        rpg.setBounds(290, 255, 60, 50);
-        rpg_n.setBounds(350, 255, 60, 50);
-        label.setBounds(30, 350, 260, 50);
-        numer.setBounds(240, 185, 85, 60);
-        fg.setBounds(410, 255, 60, 50);
-        fg_n.setBounds(470, 255, 60, 50);
-        but_tab.setBounds(250, 780, 100, 50);
-        but_mecz.setBounds(150, 780, 100, 50);
-        but_ros.setBounds(50, 780, 100, 50);
-        but_sta.setBounds(350, 780, 100, 50);
-        but_apl.setBounds(450, 780, 100, 50);
+        bground.setBounds(0, 0, 558, 739);
+        naziwso.setBounds(30, 165, 210, 60);
+        zdjecie.setBounds(335, 5, 200, 215);
+        wynik1.setBounds(30, 310, 80, 50);
+        ppg2.setBounds(225, 370, 40, 50);
+        wynik3.setBounds(30, 417, 80, 50);
+        wynik4.setBounds(30, 470, 80, 50);
+        wynik5.setBounds(30, 530, 80, 50);
+        imie.setBounds(35, 96, 300, 90);
+        ppg_4.setBounds(265, 470, 40, 50);
+        apg5.setBounds(305, 530, 40, 50);
+        logo1.setBounds(110, 310, 60, 50);
+        fg1.setBounds(505, 310, 40, 50);
+        ppg1.setBounds(225, 310, 40, 50);
+        ppg_1.setBounds(265, 310, 40, 50);
+        apg1.setBounds(305, 310, 40, 50);
+        apg_1.setBounds(345, 310, 40, 50);
+        rpgS.setBounds(385, 310, 40, 50);
+        rpg1.setBounds(425, 310, 40, 50);
+        fgS.setBounds(465, 310, 40, 50);
+        ppg3.setBounds(225, 417, 40, 50);
+        wynik2.setBounds(30, 370, 80, 50);
+        logo2.setBounds(110, 367, 57, 47);
+        logo3.setBounds(110, 417, 57, 47);
+        logo5.setBounds(110, 530, 57, 47);
+        logo4.setBounds(110, 470, 57, 47);
+        ppg_2.setBounds(265, 370, 40, 50);
+        fg2.setBounds(505, 370, 40, 50);
+        ppg_3.setBounds(265, 417, 40, 50);
+        ppg4.setBounds(225, 470, 40, 50);
+        ppg5.setBounds(225, 530, 40, 50);
+        ppg_5.setBounds(265, 530, 40, 50);
+        apg3.setBounds(305, 417, 40, 50);
+        apg2.setBounds(305, 370, 40, 50);
+        apg_2.setBounds(345, 370, 40, 50);
+        rpgSS.setBounds(385, 370, 40, 50);
+        rpg2.setBounds(425, 370, 40, 50);
+        fgSS.setBounds(465, 370, 40, 50);
+        rpgSSSS.setBounds(385, 470, 40, 50);
+        fgSSSSS.setBounds(465, 530, 40, 50);
+        apg_4.setBounds(345, 470, 40, 50);
+        rpg4.setBounds(425, 470, 40, 50);
+        fg5.setBounds(505, 530, 40, 50);
+        fgSSS.setBounds(465, 417, 40, 50);
+        apg_3.setBounds(345, 417, 40, 50);
+        fg4.setBounds(505, 470, 40, 50);
+        fg3.setBounds(505, 417, 40, 50);
+        rpgSSS.setBounds(385, 417, 40, 50);
+        fgSSSS.setBounds(465, 470, 40, 50);
+        apg4.setBounds(305, 470, 40, 50);
+        rpg3.setBounds(425, 417, 40, 50);
+        rpg5.setBounds(425, 530, 40, 50);
+        rpgSSSSS.setBounds(385, 530, 40, 50);
+        apg_5.setBounds(345, 530, 40, 50);
+        butt_pop.setBounds(185, 605, 100, 25);
+        but_nas.setBounds(320, 605, 100, 25);
+        ppg.setBounds(50, 220, 60, 50);
+        ppg_n.setBounds(110, 220, 60, 50);
+        apg.setBounds(170, 220, 60, 50);
+        apg_n.setBounds(230, 220, 60, 50);
+        rpg.setBounds(290, 220, 60, 50);
+        rpg_n.setBounds(350, 220, 60, 50);
+        label.setBounds(30, 260, 260, 50);
+        numer.setBounds(240, 165, 85, 60);
+        fg.setBounds(410, 220, 60, 50);
+        fg_n.setBounds(470, 220, 60, 50);
+        but_tab.setBounds(230, 680, 100, 50);
+        but_mecz.setBounds(130, 680, 100, 50);
+        but_ros.setBounds(30, 680, 100, 50);
+        but_sta.setBounds(320, 680, 100, 50);
+        but_apl.setBounds(420, 680, 100, 50);
 
         //Ustawienie koloru wyników meczy
         if (Mecz.ustawKolor(1) == 1) wynik1.setForeground(Color.RED);
@@ -561,7 +561,7 @@ public class ZawodnikUklad extends JPanel {
                 apg_n.setText(String.valueOf(StatystykiZawodnika.statystykiAST(i)));
                 rpg_n.setText(String.valueOf(StatystykiZawodnika.statystykiREB(i)));
                 fg_n.setText(String.valueOf(StatystykiZawodnika.statystykiFG(i)));
-                System.out.println(i);
+
                 if (i==0){
                     ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).pts));
                     ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).pts));
@@ -645,7 +645,7 @@ public class ZawodnikUklad extends JPanel {
     public static void main() {
         JFrame framee = new JFrame("Phila 76sers");
         framee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ImageIcon icon = new ImageIcon("img/logo.png");
+        ImageIcon icon = new ImageIcon("teamImage/boston.png");
         framee.getContentPane().add(new ZawodnikUklad());
         framee.pack();
         framee.setLocationRelativeTo(null);

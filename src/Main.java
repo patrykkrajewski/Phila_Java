@@ -18,7 +18,7 @@ public class Main {
 
         new Mecz("Minnesota Timberwolves", 113,145,"21/12/2023","teamImage/minnesota.png");
         new Mecz("Blazers", 113,144,"21/12/2023","teamImage/blazers.png");
-        new Mecz("Lakers", 120, 113, "21/12/2023", "teamImage/lakers.png");
+        new Mecz("Suns", 120, 113, "21/12/2023", "teamImage/suns.png");
         new Mecz("Celtics", 105, 162, "21/12/2023", "teamImage/boston.png");
         new Mecz("Warriors", 118, 101, "21/12/2023", "teamImage/warriors.png");
 
