@@ -4,6 +4,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLOutput;
 import javax.swing.*;
 
 
@@ -81,6 +82,7 @@ public class ZawodnikUklad extends JPanel {
     private JButton but_ros;
     private JButton but_sta;
     private JButton but_apl;
+    private JTextArea nap1;
     int i = 0;
 
     public ZawodnikUklad() {
@@ -327,7 +329,7 @@ public class ZawodnikUklad extends JPanel {
 
 
         naziwso.setForeground(Color.WHITE);
-        naziwso.setFont(new Font("Arial", Font.BOLD, 45));
+        naziwso.setFont(new Font("Arial", Font.BOLD, 43));
         imie.setForeground(Color.WHITE);
         imie.setFont(new Font("Arial", Font.BOLD, 45));
         numer.setForeground(Color.red);
@@ -445,15 +447,43 @@ public class ZawodnikUklad extends JPanel {
         rpgSS.setForeground(Color.GRAY);
         rpgSS.setFont(new Font("Arial", Font.BOLD, 16));
         //Przyciski
-        but_ros.addActionListener(new ActionListener() {
+        but_apl.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                removeAll();
+                revalidate();
+                repaint();
+                JLabel bgroundd;
+                JLabel nap;
 
-                JFrame frame = new JFrame ("Phila 76");
-                frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().add (new Roster());
-                frame.pack();
-                frame.setVisible (true);
+                bgroundd = new JLabel(new ImageIcon("img/b2.png"));
+                bgroundd.setBounds(0, 0, 558, 739);
+
+                nap = new JLabel("O APLIKACJI");
+                nap.setBounds(220, 20, 1000, 100);
+                nap.setForeground(Color.WHITE);
+                nap.setFont(new Font("Arial", Font.BOLD, 18));
+
+
+                nap1 = new JTextArea(10,1);
+                nap1.setText("Lorem ipsum dolor sit amet. Ut unde iusto sit \nmaxime obcaecati aut quidem illum ab doloremque quae ut vero dicta \n" +
+                        "et architecto quae. Est illum voluptatum in porro \nsunt aut excepturi dolorum ut consectetur deleniti ex quidem cumque a enim\n" +
+                        " voluptas. Sed iusto molestiae et molestias obcaecati \naut minus eligendi At placeat consequuntur aut molestiae iure sit magni debitis\n" +
+                        " et natus quia.\n" +
+                        "Sit velit reprehenderit id voluptas debitis sed voluptas\n consectetur! Aut autem optio in illo natus\n qui corporis quidem sit minima fuga a nesciunt\n" +
+                        " inventore. Sit culpa rerum qui alias voluptatem 33 dolor \nomnis 33 sint quisquam non reiciendis beatae eum galisum numquam.\n" +
+                        "\n" +
+                        "Ea deserunt odit et molestiae deleniti in \nsaepe dolore et molestias sequi. Et\n");
+                nap1.setBounds(40, 175, 480, 390);
+
+
+
+                add(nap);
+                add(nap1);
+                add(bgroundd);
+       
+
+
 
             }
         });
@@ -471,97 +501,6 @@ public class ZawodnikUklad extends JPanel {
                     rpg_n.setText(String.valueOf(StatystykiZawodnika.statystykiREB(i)));
                     fg_n.setText(String.valueOf(StatystykiZawodnika.statystykiFG(i)));
                 }
-                if (i==0){
-                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).pts));
-                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).pts));
-                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-3).pts));
-                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-4).pts));
-                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-5).pts));
-
-                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).ast));
-                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).ast));
-                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-3).ast));
-                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-4).ast));
-                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-5).ast));
-
-                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).reb));
-                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).reb));
-                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-3).reb));
-                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-4).reb));
-                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-5).reb));
-
-                    fg1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).fg));
-                    fg2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).fg));
-                    fg3.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-3).fg));
-                    fg4.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-4).fg));
-                    fg5.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-5).fg));
-                }
-                if (i==1){
-                   ppg_1.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-1).pts));
-                   ppg_2.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-2).pts));
-                   ppg_3.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-3).pts));
-                   ppg_4.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-4).pts));
-                   ppg_5.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-5).pts));
-
-                   apg_1.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-1).ast));
-                   apg_2.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-2).ast));
-                   apg_3.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-3).ast));
-                   apg_4.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-4).ast));
-                   apg_5.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-5).ast));
-
-                   rpg1.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-1).reb));
-                   rpg2.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-2).reb));
-                   rpg3.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-3).reb));
-                   rpg4.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-4).reb));
-                   rpg5.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-5).reb));
-
-                   fg1.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-1).fg));
-                   fg2.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-2).fg));
-                   fg3.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-3).fg));
-                   fg4.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-4).fg));
-                   fg5.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-5).fg));
-                }
-                if (i==2){
-                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-1).pts));
-                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-2).pts));
-                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-3).pts));
-                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).pts));
-                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).pts));
-
-                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-1).ast));
-                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-2).ast));
-                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-3).ast));
-                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).ast));
-                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).ast));
-
-                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-1).reb));
-                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-2).reb));
-                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-3).reb));
-                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).reb));
-                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).reb));
-
-                    fg1.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-1).fg));
-                    fg2.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-2).fg));
-                    fg3.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-3).fg));
-                    fg4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).fg));
-                    fg5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).fg));
-                }
-            }
-        });
-        but_nas.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (i < Zawodnik.listaZawodnikow.size()-1)
-                {i++;
-                zdjecie.setIcon(new ImageIcon(Zawodnik.listaZawodnikow.get(i).zdjecie));
-                naziwso.setText(Zawodnik.listaZawodnikow.get(i).nazwisko);
-                imie.setText(Zawodnik.listaZawodnikow.get(i).imie);
-                numer.setText("#"+Zawodnik.listaZawodnikow.get(i).numer);}
-                ppg_n.setText(String.valueOf(StatystykiZawodnika.statystykiPTS(i)));
-                apg_n.setText(String.valueOf(StatystykiZawodnika.statystykiAST(i)));
-                rpg_n.setText(String.valueOf(StatystykiZawodnika.statystykiREB(i)));
-                fg_n.setText(String.valueOf(StatystykiZawodnika.statystykiFG(i)));
-
                 if (i==0){
                     ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).pts));
                     ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).pts));
@@ -637,6 +576,703 @@ public class ZawodnikUklad extends JPanel {
                     fg4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).fg));
                     fg5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).fg));
                 }
+                if (i==3){
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-5).fg));
+                }
+                if (i == 4) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 5).fg));
+                }
+                if (i == 5) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 5).fg));
+                }
+                if (i == 6) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 5).fg));
+                }
+                if (i == 7) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 5).fg));
+                }
+                if (i == 8) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 5).fg));
+                }
+                if (i == 9) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 5).fg));
+                }
+                if (i == 10) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 5).fg));
+                }
+                if (i == 11) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 5).fg));
+                }
+                if (i == 12) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 5).fg));
+                }
+                if (i == 13) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 5).fg));
+                }
+                if (i == 14) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 5).fg));
+                }
+            }
+        });
+        but_nas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (i < Zawodnik.listaZawodnikow.size()-1)
+                {i++;
+                zdjecie.setIcon(new ImageIcon(Zawodnik.listaZawodnikow.get(i).zdjecie));
+                naziwso.setText(Zawodnik.listaZawodnikow.get(i).nazwisko);
+                imie.setText(Zawodnik.listaZawodnikow.get(i).imie);
+                numer.setText("#"+Zawodnik.listaZawodnikow.get(i).numer);}
+                ppg_n.setText(String.valueOf(StatystykiZawodnika.statystykiPTS(i)));
+                apg_n.setText(String.valueOf(StatystykiZawodnika.statystykiAST(i)));
+                rpg_n.setText(String.valueOf(StatystykiZawodnika.statystykiREB(i)));
+                fg_n.setText(String.valueOf(StatystykiZawodnika.statystykiFG(i)));
+                System.out.println(i);
+                if (i==0){
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-5).fg));
+                }
+                if (i==1){
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaEmbiid.get(StatystykiZawodnika.listaEmbiid.size()-5).fg));
+                }
+                if (i==2){
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaMelton.get(StatystykiZawodnika.listaMelton.size()-5).fg));
+                }
+                if (i==3){
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaBamba.get(StatystykiZawodnika.listaBamba.size()-5).fg));
+                }
+                if (i == 4) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaBatum.get(StatystykiZawodnika.listaBatum.size() - 5).fg));
+                }
+                if (i == 5) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaBeverley.get(StatystykiZawodnika.listaBeverley.size() - 5).fg));
+                }
+                if (i == 6) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaCovington.get(StatystykiZawodnika.listaCovington.size() - 5).fg));
+                }
+                if (i == 7) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaHarris.get(StatystykiZawodnika.listaHarris.size() - 5).fg));
+                }
+                if (i == 8) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaHouse.get(StatystykiZawodnika.listaHouse.size() - 5).fg));
+                }
+                if (i == 9) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaKorkmaz.get(StatystykiZawodnika.listaKorkmaz.size() - 5).fg));
+                }
+                if (i == 10) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaMartin.get(StatystykiZawodnika.listaMartin.size() - 5).fg));
+                }
+                if (i == 11) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaMorris.get(StatystykiZawodnika.listaMorris.size() - 5).fg));
+                }
+                if (i == 12) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaOubre.get(StatystykiZawodnika.listaOubre.size() - 5).fg));
+                }
+                if (i == 13) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaReed.get(StatystykiZawodnika.listaReed.size() - 5).fg));
+                }
+                if (i == 14) {
+                    ppg_1.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 1).pts));
+                    ppg_2.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 2).pts));
+                    ppg_3.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 3).pts));
+                    ppg_4.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 4).pts));
+                    ppg_5.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 5).pts));
+
+                    apg_1.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 1).ast));
+                    apg_2.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 2).ast));
+                    apg_3.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 3).ast));
+                    apg_4.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 4).ast));
+                    apg_5.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 5).ast));
+
+                    rpg1.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 1).reb));
+                    rpg2.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 2).reb));
+                    rpg3.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 3).reb));
+                    rpg4.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 4).reb));
+                    rpg5.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 5).reb));
+
+                    fg1.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 1).fg));
+                    fg2.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 2).fg));
+                    fg3.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 3).fg));
+                    fg4.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 4).fg));
+                    fg5.setText(String.valueOf(StatystykiZawodnika.listaSpringer.get(StatystykiZawodnika.listaSpringer.size() - 5).fg));
+                }
+
+
+
+
+
+
             }
         });
 
