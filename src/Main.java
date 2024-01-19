@@ -11,8 +11,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-
-        new Zawodnik("Tyrese","Maxey","11/4/2000", 0, "playerImage/maxey.png");
+        new Zawodnik("Tyrese","Maxey","11/4/2000", 0, "playerImage/maxey.png", new int[]{5, 6});
         new Zawodnik("Joel","Embiid","3/16/1994", 21, "playerImage/embiid.png");
         new Zawodnik("De'anthony","Melton","5/28/1998", 8,"playerImage/melton.png");
         new Zawodnik("Mo","Bamba","12/5/1998", 7,"playerImage/bamba.png");

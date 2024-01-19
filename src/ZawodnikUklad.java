@@ -329,7 +329,7 @@ public class ZawodnikUklad extends JPanel {
 
 
         naziwso.setForeground(Color.WHITE);
-        naziwso.setFont(new Font("Arial", Font.BOLD, 43));
+        naziwso.setFont(new Font("Arial", Font.BOLD, 38));
         imie.setForeground(Color.WHITE);
         imie.setFont(new Font("Arial", Font.BOLD, 45));
         numer.setForeground(Color.red);
@@ -447,9 +447,16 @@ public class ZawodnikUklad extends JPanel {
         rpgSS.setForeground(Color.GRAY);
         rpgSS.setFont(new Font("Arial", Font.BOLD, 16));
         //Przyciski
+        but_ros.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Roster.main();
+            }
+        });
         but_apl.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 removeAll();
                 revalidate();
                 repaint();
@@ -481,7 +488,7 @@ public class ZawodnikUklad extends JPanel {
                 add(nap);
                 add(nap1);
                 add(bgroundd);
-       
+
 
 
 
@@ -891,7 +898,6 @@ public class ZawodnikUklad extends JPanel {
                 apg_n.setText(String.valueOf(StatystykiZawodnika.statystykiAST(i)));
                 rpg_n.setText(String.valueOf(StatystykiZawodnika.statystykiREB(i)));
                 fg_n.setText(String.valueOf(StatystykiZawodnika.statystykiFG(i)));
-                System.out.println(i);
                 if (i==0){
                     ppg_1.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-1).pts));
                     ppg_2.setText(String.valueOf(StatystykiZawodnika.listaMaxey.get(StatystykiZawodnika.listaMaxey.size()-2).pts));
