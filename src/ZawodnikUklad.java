@@ -82,6 +82,7 @@ public class ZawodnikUklad extends JPanel {
     private JButton but_ros;
     private JButton but_sta;
     private JButton but_apl;
+
     private JTextArea nap1;
     int i = 0;
 
@@ -234,10 +235,10 @@ public class ZawodnikUklad extends JPanel {
         add(numer);
         add(fg);
         add(fg_n);
-        add(but_tab);
-        add(but_mecz);
+        //add(but_tab);
+        //add(but_mecz);
         add(but_ros);
-        add(but_sta);
+        //add(but_sta);
         add(but_apl);
         add(bground);
 
@@ -311,9 +312,9 @@ public class ZawodnikUklad extends JPanel {
         fg_n.setBounds(470, 220, 60, 50);
         but_tab.setBounds(230, 680, 100, 50);
         but_mecz.setBounds(130, 680, 100, 50);
-        but_ros.setBounds(30, 680, 100, 50);
+        but_ros.setBounds(200, 680, 100, 50);
         but_sta.setBounds(320, 680, 100, 50);
-        but_apl.setBounds(420, 680, 100, 50);
+        but_apl.setBounds(300, 680, 100, 50);
 
         //Ustawienie koloru wyników meczy
         if (Mecz.ustawKolor(1) == 1) wynik1.setForeground(Color.RED);
@@ -462,12 +463,14 @@ public class ZawodnikUklad extends JPanel {
                 repaint();
                 JLabel bgroundd;
                 JLabel nap;
+                JButton cofnij = new JButton("Cofnij");
 
                 bgroundd = new JLabel(new ImageIcon("img/b2.png"));
                 bgroundd.setBounds(0, 0, 558, 739);
 
                 nap = new JLabel("O APLIKACJI");
                 nap.setBounds(220, 20, 1000, 100);
+                cofnij.setBounds(220, 680, 100, 50);
                 nap.setForeground(Color.WHITE);
                 nap.setFont(new Font("Arial", Font.BOLD, 18));
 
@@ -482,12 +485,19 @@ public class ZawodnikUklad extends JPanel {
                         "\n" +
                         "Ea deserunt odit et molestiae deleniti in \nsaepe dolore et molestias sequi. Et\n");
                 nap1.setBounds(40, 175, 480, 390);
+                cofnij.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
 
+                        ZawodnikUklad.main();
 
+                    }});
 
+                add(cofnij);
                 add(nap);
                 add(nap1);
                 add(bgroundd);
+
 
 
 

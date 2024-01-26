@@ -15,6 +15,7 @@ public class Roster extends JPanel {
     private JLabel labRoster;
     private JLabel bgRoster;
 
+
     public Roster() {
         //construct preComponents
         String[] listaRosterItems = {
@@ -38,6 +39,7 @@ public class Roster extends JPanel {
 
         //construct components
         listaRoster = new JList (listaRosterItems);
+
         labRoster = new JLabel ("ROSTER");
         bgRoster = new JLabel(new ImageIcon("img/bgRoster.png"));
         bgRoster.setBounds(0, 0, 358, 368);
@@ -47,15 +49,22 @@ public class Roster extends JPanel {
 
 
         //add components
+
+
         add (listaRoster);
         add (labRoster);
         add (bgRoster);
 
+
+
         //set component bounds (only needed by Absolute Positioning)
         listaRoster.setBounds (30, 76, 305, 270);
         labRoster.setBounds (145, 20, 365, 55);
+
+
         labRoster.setForeground(Color.WHITE);
         labRoster.setFont(new Font("Arial", Font.BOLD, 20));
+
     }
 public static void zListy(){
     if(listaRoster.getSelectedIndex()==0){
